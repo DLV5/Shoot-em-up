@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "StKLtyojQdPkSymk9OXV++8LLmoiySjEdQGeZSnivkKtFYFV9JOF/7pf8XJxM/OUGqTTOvjpI/O49Zq0Q0S+6Q==",
+  "success": true,
+  "projectFilePath": "D:\\Godot\\Shoot em up\\Shoot em up.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\diman\\.nuget\\packages\\godot.sourcegenerators\\4.2.2\\godot.sourcegenerators.4.2.2.nupkg.sha512",
+    "C:\\Users\\diman\\.nuget\\packages\\godotsharp\\4.2.2\\godotsharp.4.2.2.nupkg.sha512",
+    "C:\\Users\\diman\\.nuget\\packages\\godotsharpeditor\\4.2.2\\godotsharpeditor.4.2.2.nupkg.sha512"
+  ],
+  "logs": []
+}

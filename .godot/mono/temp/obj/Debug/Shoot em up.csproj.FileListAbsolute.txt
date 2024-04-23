@@ -1,0 +1,17 @@
+D:\Godot\Shoot em up\.godot\mono\temp\bin\Debug\Shoot em up.deps.json
+D:\Godot\Shoot em up\.godot\mono\temp\bin\Debug\Shoot em up.runtimeconfig.json
+D:\Godot\Shoot em up\.godot\mono\temp\bin\Debug\Shoot em up.dll
+D:\Godot\Shoot em up\.godot\mono\temp\bin\Debug\Shoot em up.pdb
+D:\Godot\Shoot em up\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Godot\Shoot em up\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.csproj.AssemblyReference.cache
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.AssemblyInfoInputs.cache
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.AssemblyInfo.cs
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.csproj.CoreCompileInputs.cache
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.csproj.CopyComplete
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.dll
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\refint\Shoot em up.dll
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.pdb
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\Shoot em up.genruntimeconfig.cache
+D:\Godot\Shoot em up\.godot\mono\temp\obj\Debug\ref\Shoot em up.dll

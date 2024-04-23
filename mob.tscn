@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://2qewpg0waiyp"]
+
+[ext_resource type="Texture2D" uid="uid://bnk616ehne0ul" path="res://Art/ballBlue_10.png" id="1_mwy3t"]
+[ext_resource type="Script" path="res://Mob.cs" id="1_p8wc6"]
+[ext_resource type="Script" path="res://MobHealth.cs" id="3_lmqoj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxviq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mwy3t")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xsfl"]
+radius = 25.0
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_p8wc6")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.193667, 0.18, 1)
+scale = Vector2(0.33, 0.33)
+sprite_frames = SubResource("SpriteFrames_dxviq")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1xsfl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="MobHealth" type="Node" parent="." groups=["mobs"]]
+script = ExtResource("3_lmqoj")

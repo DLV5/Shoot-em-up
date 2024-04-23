@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://4w15850cy7w0"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_ixh3e"]
+[ext_resource type="Texture2D" uid="uid://bnk616ehne0ul" path="res://Art/ballBlue_10.png" id="1_tbfo3"]
+[ext_resource type="PackedScene" uid="uid://ddgkqn2fls3us" path="res://weapon.tscn" id="3_fgoah"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6yxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tbfo3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8hhju"]
+radius = 74.0
+
+[node name="Player" type="Area2D"]
+scale = Vector2(0.508836, 0.475943)
+script = ExtResource("1_ixh3e")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w6yxw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8hhju")
+
+[node name="Weapon" parent="." instance=ExtResource("3_fgoah")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

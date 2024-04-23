@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1713892247
+icon.svg::CompressedTexture2D::8470898567402336957::1713884376::1713884398::1::::<><>::
+Player.cs::CSharpScript::-1::1713888786::0::1::::<>Area2D<>::
+player.tscn::PackedScene::2082526772475555717::1713890680::0::1::::<><>::res://Player.cs<>uid://bnk616ehne0ul::::res://Art/ballBlue_10.png
+mob.tscn::PackedScene::1928411776013178079::1713890680::0::1::::<><>::uid://bnk616ehne0ul::::res://Art/ballBlue_10.png<>res://Mob.cs
+Mob.cs::CSharpScript::-1::1713889212::0::1::::<>RigidBody2D<>::
+main.tscn::PackedScene::3812506251547637197::1713890680::0::1::::<><>::res://Main.cs<>uid://4w15850cy7w0::::res://player.tscn<>uid://2qewpg0waiyp::::res://mob.tscn
+Main.cs::CSharpScript::-1::1713890726::0::1::::<>Node<>::
+hud.tscn::PackedScene::7443984082773230159::1713892247::0::1::::<><>::res://HUD.cs<>uid://dyycn4fdfdh7j::::res://Xolonium-Regular.ttf
+HUD.cs::CSharpScript::-1::1713892195::0::1::::<><>::
+Xolonium-Regular.ttf::FontFile::8893485544840102893::1713891745::1713891745::1::::<><>::
+::res://Art/::1713886295
+ballBlue_10.png::CompressedTexture2D::3321449720684086759::1713886294::1713886295::1::::<><>::
