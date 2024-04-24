@@ -4,16 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bnk616ehne0ul" path="res://Art/ballBlue_10.png" id="2_kcah0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ca0tj"]
-radius = 7.0
-height = 15.0
+radius = 8.0
 
 [node name="Bullet" type="RigidBody2D"]
-scale = Vector2(1, 2)
 gravity_scale = 0.0
 script = ExtResource("1_2pv0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.1)
 texture = ExtResource("2_kcah0")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -21,6 +19,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ca0tj")
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

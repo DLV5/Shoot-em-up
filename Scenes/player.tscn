@@ -36,3 +36,6 @@ _bulletsPerSecond = 5.0
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_tafou")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position_smoothing_enabled = true

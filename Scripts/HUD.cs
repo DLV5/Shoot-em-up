@@ -7,7 +7,7 @@ public partial class HUD : CanvasLayer
 
     public void ShowMessage(string text)
     {
-        var message = GetNode<Label>("Message");
+        var message = GetNode<Label>("MessagePanel/Message");
         message.Text = text;
         message.Show();
 
@@ -31,7 +31,7 @@ public partial class HUD : CanvasLayer
 
     public void UpdateScore(int score)
     {
-        GetNode<Label>("ScoreLabel").Text = score.ToString();
+        GetNode<Label>("ScorePanel/ScoreLabel").Text = score.ToString();
     }
 
     private void OnStartButtonPressed()
@@ -42,6 +42,6 @@ public partial class HUD : CanvasLayer
 
     private void OnMessageTimerTimeout()
     {
-        GetNode<Label>("Message").Hide();
+        GetNode<Panel>("MessagePanel").Hide();
     }
 }

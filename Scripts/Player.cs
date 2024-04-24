@@ -8,18 +8,11 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
 
-	public Vector2 ScreenSize; // Size of the game window.
-
 	public void Start(Vector2 position)
 	{
 		Position = position;
 		Show();
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
-	}
-
-	public override void _Ready()
-	{
-		ScreenSize = GetViewportRect().Size;
 	}
 
 	public override void _Process(double delta)
@@ -41,11 +34,6 @@ public partial class Player : CharacterBody2D
 		Velocity = input;
 
 		MoveAndSlide();
-
-		Position = new Vector2(
-			x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
-			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
-		);
 
 		LookAt(GetGlobalMousePosition());
 	}
