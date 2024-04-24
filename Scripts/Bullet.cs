@@ -6,9 +6,9 @@ public partial class Bullet : RigidBody2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (body.IsInGroup("mobs"))
+		if (body.IsInGroup("enemies"))
 		{
-			body.GetNode<MobHealth>("MobHealth").Damage(_damage);
+			body.GetNode<Health>("Health").Damage(_damage);
 		}
 
 		QueueFree();

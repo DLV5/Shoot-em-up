@@ -1,7 +1,10 @@
 using Godot;
 
-public partial class MobHealth : Node
+public partial class Health : Node
 {
+    [Signal]
+    public delegate void DiedEventHandler();
+
     private int _health = 1;
 
     public void Damage(int damage)
@@ -10,6 +13,7 @@ public partial class MobHealth : Node
 
         if (_health <= 0)
         {
+            EmitSignal(SignalName.Died);
             GetParent().QueueFree();
         }
     }

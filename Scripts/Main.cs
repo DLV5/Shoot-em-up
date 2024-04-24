@@ -4,21 +4,23 @@ public partial class Main : Node
 {
     [Export]
     public PackedScene MobScene { get; set; }
+    
+    [Export]
+    public PackedScene PlayerScene { get; set; }
 
     private int _score;
-
-    public override void _Ready()
-    {
-        
-    }
 
     public void NewGame()
     {
         _score = 0;
 
-        var player = GetNode<Player>("Player");
+        Player player = PlayerScene.Instantiate<Player>();
         var startPosition = GetNode<Marker2D>("StartPosition");
         player.Start(startPosition.Position);
+
+        player.GetNode<Health>("Health").Died += GameOver;
+
+        AddChild(player);
 
         GetNode<Timer>("StartTimer").Start();
 
@@ -28,7 +30,7 @@ public partial class Main : Node
 
         // Note that for calling Godot-provided methods with strings,
         // we have to use the original Godot snake_case name.
-        GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
+        GetTree().CallGroup("enemies", Node.MethodName.QueueFree);
     }
 
     public void GameOver()
@@ -59,7 +61,7 @@ public partial class Main : Node
         // obviously Mob and PathFollow2D, since they appear later on the line.
 
         // Create a new instance of the Mob scene.
-        Mob mob = MobScene.Instantiate<Mob>();
+        Enemy mob = MobScene.Instantiate<Enemy>();
 
         // Choose a random location on Path2D.
         var mobSpawnLocation = GetNode<PathFollow2D>("MobPath/MobSpawnLocation");
@@ -77,7 +79,7 @@ public partial class Main : Node
 
         // Choose the velocity.
         var velocity = new Vector2((float)GD.RandRange(150.0, 250.0), 0);
-        mob.LinearVelocity = velocity.Rotated(direction);
+        //mob = velocity.Rotated(direction);
 
         // Spawn the mob by adding it to the Main scene.
         AddChild(mob);

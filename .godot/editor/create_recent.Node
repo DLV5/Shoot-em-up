@@ -1,5 +1,6 @@
 Node
 Area2D
+CharacterBody2D
 CollisionShape2D
 Node2D
 Sprite2D
@@ -11,4 +12,3 @@ CanvasLayer
 PathFollow2D
 Path2D
 Marker2D
-VisibleOnScreenNotifier2D

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5oo5woxpcqli"]
+
+[ext_resource type="Texture2D" uid="uid://bnk616ehne0ul" path="res://Art/ballBlue_10.png" id="1_2pi62"]
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_dk345"]
+[ext_resource type="Script" path="res://Scripts/Health.cs" id="3_ut4uw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahrr4"]
+radius = 38.3275
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6k1sy"]
+radius = 44.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_dk345")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ahrr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.23, 0.23, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2pi62")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_6k1sy")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("3_ut4uw")
+
+[connection signal="body_entered" from="AttackRange" to="." method="OnAttackRangeBodyEnter"]
+[connection signal="body_exited" from="AttackRange" to="." method="OnAttackRangeBodyExit"]

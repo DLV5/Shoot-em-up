@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://buk2oku8dyolp"]
 
-[ext_resource type="Script" path="res://Main.cs" id="1_5c6cr"]
-[ext_resource type="PackedScene" uid="uid://4w15850cy7w0" path="res://player.tscn" id="1_g3fli"]
-[ext_resource type="PackedScene" uid="uid://2qewpg0waiyp" path="res://mob.tscn" id="2_titny"]
-[ext_resource type="PackedScene" uid="uid://deb6lh1xehtmt" path="res://HUD.tscn" id="4_btyil"]
+[ext_resource type="Script" path="res://Scripts/Main.cs" id="1_5c6cr"]
+[ext_resource type="PackedScene" uid="uid://4w15850cy7w0" path="res://Scenes/player.tscn" id="1_g3fli"]
+[ext_resource type="PackedScene" uid="uid://b5oo5woxpcqli" path="res://Scenes/enemy.tscn" id="2_vik7p"]
+[ext_resource type="PackedScene" uid="uid://deb6lh1xehtmt" path="res://Scenes/HUD.tscn" id="4_btyil"]
 
 [sub_resource type="Curve2D" id="Curve2D_ncss3"]
 _data = {
@@ -13,10 +13,8 @@ point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5c6cr")
-MobScene = ExtResource("2_titny")
-
-[node name="Player" parent="." instance=ExtResource("1_g3fli")]
-scale = Vector2(0.475361, 0.536469)
+MobScene = ExtResource("2_vik7p")
+PlayerScene = ExtResource("1_g3fli")
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -37,7 +35,6 @@ curve = SubResource("Curve2D_ncss3")
 
 [node name="HUD" parent="." instance=ExtResource("4_btyil")]
 
-[connection signal="Hit" from="Player" to="." method="GameOver"]
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="OnScoreTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
