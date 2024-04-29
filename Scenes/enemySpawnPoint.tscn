@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfc7t3fnjutj3"]
 
-[ext_resource type="Script" path="res://Scenes/EnemySpawnPoint.cs" id="1_eg847"]
 [ext_resource type="Texture2D" uid="uid://bnk616ehne0ul" path="res://Art/ballBlue_10.png" id="1_l1q5j"]
+[ext_resource type="Script" path="res://Scripts/EnemySpawnPoint.cs" id="2_skve2"]
 [ext_resource type="PackedScene" uid="uid://b5oo5woxpcqli" path="res://Scenes/enemy.tscn" id="2_vxlrt"]
 
 [node name="EnemySpawnPoint" type="Sprite2D"]
 modulate = Color(0.380303, 7.21961e-08, 0.187628, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_l1q5j")
-script = ExtResource("1_eg847")
+script = ExtResource("2_skve2")
 EnemyScene = ExtResource("2_vxlrt")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]

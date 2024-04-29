@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://buk2oku8dyolp"]
+[gd_scene load_steps=15 format=3 uid="uid://buk2oku8dyolp"]
 
 [ext_resource type="Script" path="res://Scripts/Main.cs" id="1_5c6cr"]
 [ext_resource type="PackedScene" uid="uid://4w15850cy7w0" path="res://Scenes/player.tscn" id="1_g3fli"]
@@ -12,6 +12,18 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhet1"]
+size = Vector2(32.2183, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4maht"]
+size = Vector2(32.3466, 31.0033)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jowow"]
+size = Vector2(32.113, 27.9979)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dv2j"]
+size = Vector2(32.1467, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcecm"]
 texture = ExtResource("6_4jxyd")
@@ -64,11 +76,23 @@ position = Vector2(697, -347)
 scale = Vector2(64.125, 1)
 texture = ExtResource("5_0st8f")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall/StaticBody2D"]
+position = Vector2(-0.0623789, -4)
+shape = SubResource("RectangleShape2D_qhet1")
+
 [node name="Wall2" type="Sprite2D" parent="Boundaries"]
 position = Vector2(1738, 521)
 rotation = 1.5708
 scale = Vector2(54.8125, 1)
 texture = ExtResource("5_0st8f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall2/StaticBody2D"]
+position = Vector2(0.0456133, 5.50159)
+shape = SubResource("RectangleShape2D_4maht")
 
 [node name="Wall3" type="Sprite2D" parent="Boundaries"]
 position = Vector2(-331.767, 521.367)
@@ -76,10 +100,22 @@ rotation = 1.5708
 scale = Vector2(55.4604, 0.735436)
 texture = ExtResource("5_0st8f")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall3/StaticBody2D"]
+position = Vector2(0.00239468, 3.99908)
+shape = SubResource("RectangleShape2D_jowow")
+
 [node name="Wall4" type="Sprite2D" parent="Boundaries"]
 position = Vector2(711.75, 1384)
 scale = Vector2(64.7344, 1)
 texture = ExtResource("5_0st8f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Wall4/StaticBody2D"]
+position = Vector2(-0.0965481, 0)
+shape = SubResource("RectangleShape2D_7dv2j")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rw4vx")
