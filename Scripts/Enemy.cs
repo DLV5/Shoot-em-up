@@ -53,7 +53,6 @@ public partial class Enemy : CharacterBody2D
     {
         if (body.IsInGroup("Player"))
         {
-            Debug.Print("Player in range");
             _withinAttackRange = true;
         }
     }

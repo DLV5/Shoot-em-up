@@ -1,4 +1,5 @@
 using Godot;
+using System.Diagnostics;
 
 public partial class HUD : CanvasLayer
 {
@@ -9,7 +10,7 @@ public partial class HUD : CanvasLayer
     {
         var message = GetNode<Label>("MessagePanel/Message");
         message.Text = text;
-        message.Show();
+        GetNode<Panel>("MessagePanel").Show();
 
         GetNode<Timer>("MessageTimer").Start();
     }
@@ -21,9 +22,9 @@ public partial class HUD : CanvasLayer
         var messageTimer = GetNode<Timer>("MessageTimer");
         await ToSignal(messageTimer, Timer.SignalName.Timeout);
 
-        var message = GetNode<Label>("Message");
+        var message = GetNode<Label>("MessagePanel/Message");
         message.Text = "Kill the Creeps!";
-        message.Show();
+        GetNode<Panel>("MessagePanel").Show();
 
         await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
         GetNode<Button>("StartButton").Show();
