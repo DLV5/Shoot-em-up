@@ -19,23 +19,14 @@ public partial class Player : CharacterBody2D
 	{
 		var input = Input.GetVector("move_left", "move_right", "move_up", "move_down");	
 
-		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-
 		if (input.Length() > 0)
 		{
             input = input.Normalized() * Speed;
-			animatedSprite2D.Play();
-		}
-		else
-		{
-			animatedSprite2D.Stop();
 		}
 
 		Velocity = input;
 
 		MoveAndSlide();
-
-		LookAt(GetGlobalMousePosition());
 	}
 }
 

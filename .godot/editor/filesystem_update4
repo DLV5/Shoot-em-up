@@ -1,5 +1,5 @@
-res://main.tscn
 res://Scenes/player.tscn
+res://main.tscn
 res://Scenes/HUD.tscn
 res://Scenes/bullet.tscn
 res://Scenes/weapon.tscn
@@ -14,3 +14,4 @@ res://Scripts/Main.cs
 res://Scripts/Bullet.cs
 res://Scripts/Health.cs
 res://Scripts/EnemySpawnPoint.cs
+res://Shaders/SmoothPixel.gdshader

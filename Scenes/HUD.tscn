@@ -7,10 +7,10 @@
 script = ExtResource("1_iki6v")
 
 [node name="ScorePanel" type="Panel" parent="."]
-offset_left = 544.0
-offset_top = 8.0
-offset_right = 608.0
-offset_bottom = 72.0
+offset_left = 504.0
+offset_top = 24.0
+offset_right = 648.0
+offset_bottom = 88.0
 
 [node name="ScoreLabel" type="Label" parent="ScorePanel"]
 layout_mode = 1

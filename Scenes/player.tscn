@@ -1,20 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://4w15850cy7w0"]
+[gd_scene load_steps=9 format=3 uid="uid://4w15850cy7w0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_ixh3e"]
-[ext_resource type="Texture2D" uid="uid://bnk616ehne0ul" path="res://Art/ballBlue_10.png" id="1_tbfo3"]
+[ext_resource type="Shader" path="res://Shaders/SmoothPixel.gdshader" id="2_t136u"]
 [ext_resource type="PackedScene" uid="uid://ddgkqn2fls3us" path="res://Scenes/weapon.tscn" id="3_fgoah"]
+[ext_resource type="Texture2D" uid="uid://rrk88apiqgx5" path="res://Art/Player/PlayerMain.png" id="4_oppss"]
 [ext_resource type="Script" path="res://Scripts/Health.cs" id="4_tafou"]
+[ext_resource type="Texture2D" uid="uid://bhluthrj21nl5" path="res://Art/Player/PlayerWeapon.png" id="5_jmfep"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w6yxw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_tbfo3")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_je8cg"]
+shader = ExtResource("2_t136u")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8hhju"]
 radius = 74.0
@@ -24,9 +18,12 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ixh3e")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_w6yxw")
-animation = &"walk"
+[node name="PlayerMain" type="Sprite2D" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_je8cg")
+rotation = -1.5708
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_oppss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8hhju")
@@ -34,8 +31,19 @@ shape = SubResource("CircleShape2D_8hhju")
 [node name="Weapon" parent="." instance=ExtResource("3_fgoah")]
 _bulletsPerSecond = 5.0
 
+[node name="PlayerWeapon" type="Sprite2D" parent="Weapon"]
+texture_filter = 2
+material = SubResource("ShaderMaterial_je8cg")
+rotation = -1.5708
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("5_jmfep")
+
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_tafou")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+limit_left = -490
+limit_top = -510
+limit_right = 1600
+limit_bottom = 1225
 position_smoothing_enabled = true
