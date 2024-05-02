@@ -1,11 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddgkqn2fls3us"]
+[gd_scene load_steps=8 format=3 uid="uid://ddgkqn2fls3us"]
 
 [ext_resource type="Script" path="res://Scripts/Weapon.cs" id="1_rg64p"]
 [ext_resource type="PackedScene" uid="uid://dbodsjowabjyy" path="res://Scenes/bullet.tscn" id="2_pym1j"]
+[ext_resource type="Shader" path="res://Shaders/SmoothPixel.gdshader" id="3_nm3du"]
+[ext_resource type="Texture2D" uid="uid://bhluthrj21nl5" path="res://Art/Player/PlayerWeapon.png" id="4_eysc1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjrgm"]
+shader = ExtResource("3_nm3du")
+
+[sub_resource type="Curve" id="Curve_l6kf7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_s8we2"]
+colors = PackedColorArray(0.942393, 0.765521, 0.389045, 1, 0.843407, 0.624301, 0.329357, 1)
 
 [node name="weapon" type="Node2D"]
 script = ExtResource("1_rg64p")
 BulletScene = ExtResource("2_pym1j")
 
+[node name="PlayerWeapon" type="Sprite2D" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_hjrgm")
+position = Vector2(7.62939e-06, -1.16529e-12)
+rotation = -1.5708
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_eysc1")
+
 [node name="ShootPoint" type="Node2D" parent="."]
 position = Vector2(100, 0)
+
+[node name="ShootParticles" type="CPUParticles2D" parent="."]
+position = Vector2(61.82, 0)
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.79
+spread = 64.41
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_l6kf7")
+color_ramp = SubResource("Gradient_s8we2")

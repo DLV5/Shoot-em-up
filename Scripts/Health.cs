@@ -5,7 +5,7 @@ public partial class Health : Node
     [Signal]
     public delegate void DiedEventHandler();
 
-    private int _health = 1;
+    [Export] private int _health = 1;
 
     private AudioStreamPlayer2D _damagedAudio;
 

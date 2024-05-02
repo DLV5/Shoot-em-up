@@ -2,7 +2,9 @@ using Godot;
 
 public partial class Bullet : RigidBody2D
 {
-	private int _damage = 1;
+    [Export] public PackedScene SmallExplosionScene { get; set; }
+
+    private int _damage = 1;
 
 	private void OnBodyEntered(Node2D body)
 	{
@@ -11,6 +13,21 @@ public partial class Bullet : RigidBody2D
 			body.GetNode<Health>("Health").Damage(_damage);
 		}
 
-		QueueFree();
+        SpawnSmallExplosion();
+
+        QueueFree();
 	}
+
+	private void SpawnSmallExplosion()
+	{
+        Node2D explosion = SmallExplosionScene.Instantiate<Node2D>();
+
+        explosion.Position = GlobalPosition;
+
+        explosion.Rotation = GlobalRotation;
+
+        GetTree().Root.AddChild(explosion);
+
+        explosion.GetNode<CpuParticles2D>("Particles").Emitting = true;
+    }
 }

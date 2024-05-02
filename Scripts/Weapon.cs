@@ -18,11 +18,15 @@ public partial class Weapon : Node2D
 
     private AudioStreamPlayer2D _shootAudio;
 
+    private CpuParticles2D _shootParticle;
+
     public override void _Ready()
     {
         _fireRate = 1 / _bulletsPerSecond;
 
         _shootAudio = GetTree().Root.GetNode("Main").GetNode<AudioStreamPlayer2D>("ShootSfx");
+
+        _shootParticle = GetNode<CpuParticles2D>("ShootParticles");
 
         _shootPoint = GetNode<Node2D>("ShootPoint");
     }
@@ -55,5 +59,9 @@ public partial class Weapon : Node2D
         GetTree().Root.AddChild(bullet);
 
         _shootAudio.Play();
+
+        _shootParticle.Restart();
+
+        _shootParticle.Emitting = true;
     }
 }

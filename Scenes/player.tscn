@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://4w15850cy7w0"]
+[gd_scene load_steps=8 format=3 uid="uid://4w15850cy7w0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_ixh3e"]
 [ext_resource type="Shader" path="res://Shaders/SmoothPixel.gdshader" id="2_t136u"]
 [ext_resource type="PackedScene" uid="uid://ddgkqn2fls3us" path="res://Scenes/weapon.tscn" id="3_fgoah"]
 [ext_resource type="Texture2D" uid="uid://rrk88apiqgx5" path="res://Art/Player/PlayerMain.png" id="4_oppss"]
 [ext_resource type="Script" path="res://Scripts/Health.cs" id="4_tafou"]
-[ext_resource type="Texture2D" uid="uid://bhluthrj21nl5" path="res://Art/Player/PlayerWeapon.png" id="5_jmfep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_je8cg"]
 shader = ExtResource("2_t136u")
@@ -30,13 +29,6 @@ shape = SubResource("CircleShape2D_8hhju")
 
 [node name="Weapon" parent="." instance=ExtResource("3_fgoah")]
 _bulletsPerSecond = 5.0
-
-[node name="PlayerWeapon" type="Sprite2D" parent="Weapon"]
-texture_filter = 2
-material = SubResource("ShaderMaterial_je8cg")
-rotation = -1.5708
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("5_jmfep")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_tafou")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5oo5woxpcqli"]
+[gd_scene load_steps=8 format=3 uid="uid://b5oo5woxpcqli"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_dk345"]
 [ext_resource type="Texture2D" uid="uid://cqa8r52h5qk6e" path="res://Art/Enemies/Tier1BaseEnemy.png" id="2_vqmrn"]
 [ext_resource type="Script" path="res://Scripts/Health.cs" id="3_ut4uw"]
+[ext_resource type="Script" path="res://Scripts/DiedEffect.cs" id="4_ebhaf"]
+[ext_resource type="PackedScene" uid="uid://d22gbluuk611k" path="res://Scenes/explosion.tscn" id="5_1xybv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp6y5"]
 size = Vector2(96, 96)
@@ -32,6 +34,12 @@ shape = SubResource("RectangleShape2D_fslte")
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource("3_ut4uw")
+_health = 2
+
+[node name="ExplosionHandler" type="Node2D" parent="Health"]
+script = ExtResource("4_ebhaf")
+ExplosionScene = ExtResource("5_1xybv")
 
 [connection signal="body_entered" from="AttackRange" to="." method="OnAttackRangeBodyEnter"]
 [connection signal="body_exited" from="AttackRange" to="." method="OnAttackRangeBodyExit"]
+[connection signal="Died" from="Health" to="Health/ExplosionHandler" method="OnDied"]

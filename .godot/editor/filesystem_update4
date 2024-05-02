@@ -15,3 +15,6 @@ res://Scripts/Bullet.cs
 res://Scripts/Health.cs
 res://Scripts/EnemySpawnPoint.cs
 res://Shaders/SmoothPixel.gdshader
+res://Scenes/explosion.tscn
+res://Scripts/DiedEffect.cs
+res://Scenes/smallExplosion.tscn
